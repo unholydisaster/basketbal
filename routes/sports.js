@@ -11,7 +11,10 @@ router.post('/', async(req,res)=>{
         hometeam:req.body.homeName,
         awayteam:req.body.awayName,
         league:req.body.leagueName,
-        pick:req.body.pickTip
+        pick:req.body.pickTip,
+        H:req.body.h,
+        D:req.body.d,
+        A:req.body.a,
     });
     sport.save().then((sport)=>{
         res.send(sport);
@@ -39,7 +42,10 @@ router.put("/:sportId",async(req,res)=>{
         hometeam:req.body.homeName,
         awayteam:req.body.awayName,
         league:req.body.leagueName,
-        pick:req.body.pickTip
+        pick:req.body.pickTip,
+        H:req.body.h,
+        D:req.body.d,
+        A:req.body.a,
     },
     {new:true}
     );

@@ -80,20 +80,36 @@ const SportSchema=new mongoose.Schema({
         minlength:2,
         maxlength:50
     },
-    H:null,
-    D:null,
-    A:null
+    H:{
+        type:Number,
+        required:true,
+        minlength:1,
+        maxlength:50
+    }
+    ,
+    D:{
+        type:Number,
+        required:true,
+        minlength:1,
+        maxlength:50
+    },
+    A:{
+        type:Number,
+        required:true,
+        minlength:1,
+        maxlength:50
+    }
 });
 
    const validateSport=sport=>{
           const schema=yup.object().shape({
-              homeName:yup.string().required().min(2).max(50),
-              awayName:yup.string().required().min(2).max(50),
-              leagueName:yup.string().required().min(2).max(50),
-              pickTip:yup.string().required().min(2).max(50),
-              h:yup.null,
-              d:yup.null,
-              a:yup.null
+            hometeam:yup.string().required().min(2).max(50),
+            awayteam:yup.string().required().min(2).max(50),
+            league:yup.string().required().min(2).max(50),
+            pick:yup.string().required().min(2).max(50),
+            H:yup.number().required().min(1).max(50),
+            D:yup.number().required().min(1).max(50),
+            A:yup.number().required().min(1).max(50)
           });
           return schema
           .validate(sport)

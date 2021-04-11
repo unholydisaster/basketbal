@@ -8,13 +8,13 @@ router.post('/', async(req,res)=>{
     if(error.message)res.status(400).send(error.message)
 
     sport = new Sport({
-        hometeam:req.body.homeName,
-        awayteam:req.body.awayName,
-        league:req.body.leagueName,
-        pick:req.body.pickTip,
-        H:req.body.h,
-        D:req.body.d,
-        A:req.body.a,
+        hometeam:req.body.hometeam,
+        awayteam:req.body.awayteam,
+        league:req.body.league,
+        pick:req.body.pick,
+        H:req.body.H,
+        D:req.body.H,
+        A:req.body.H
     });
     sport.save().then((sport)=>{
         res.send(sport);
@@ -39,13 +39,13 @@ router.get("/:sportId",async(req,res)=>{
 //UPDATE sport BASED On ID
 router.put("/:sportId",async(req,res)=>{
     const updatedSport=await Sport.findByIdAndUpdate(req.params.sportId,{
-        hometeam:req.body.homeName,
-        awayteam:req.body.awayName,
-        league:req.body.leagueName,
-        pick:req.body.pickTip,
-        H:req.body.h,
-        D:req.body.d,
-        A:req.body.a,
+        hometeam:req.body.hometeam,
+        awayteam:req.body.awayteam,
+        league:req.body.league,
+        pick:req.body.pick,
+        H:req.body.H,
+        D:req.body.H,
+        A:req.body.H
     },
     {new:true}
     );
